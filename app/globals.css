@@ -1,0 +1,188 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Glassmorphism aesthetic inspired by v0 and lovable */
+:root {
+  /* Light Mode - Clean and minimal */
+  --background: oklch(1 0 0); /* #FFFFFF - Pure white */
+  --foreground: oklch(0.2 0 0); /* #2D2D2D - Dark gray */
+
+  /* Glass surfaces */
+  --card: oklch(0.98 0 0); /* #FAFAFA - Very light gray */
+  --card-foreground: oklch(0.2 0 0); /* #2D2D2D */
+
+  --popover: oklch(0.98 0 0 / 0.95); /* Semi-transparent */
+  --popover-foreground: oklch(0.2 0 0);
+
+  /* Soft teal accent */
+  --primary: oklch(0.65 0.12 200); /* #4ECDC4 - Soft teal */
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.95 0 0); /* #F0F0F0 - Light gray */
+  --secondary-foreground: oklch(0.2 0 0);
+
+  --muted: oklch(0.96 0 0); /* #F5F5F5 */
+  --muted-foreground: oklch(0.5 0 0); /* #808080 - Mid gray */
+
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.2 0 0);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.92 0 0 / 0.5); /* Semi-transparent borders */
+  --input: oklch(0.95 0 0);
+  --ring: oklch(0.65 0.12 200); /* Teal focus ring */
+
+  --radius: 1rem; /* Softer, more rounded */
+
+  /* Sidebar glass */
+  --sidebar: oklch(0.98 0 0 / 0.8); /* Semi-transparent */
+  --sidebar-foreground: oklch(0.2 0 0);
+  --sidebar-primary: oklch(0.65 0.12 200);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0 0 / 0.6);
+  --sidebar-accent-foreground: oklch(0.2 0 0);
+  --sidebar-border: oklch(0.92 0 0 / 0.3);
+  --sidebar-ring: oklch(0.65 0.12 200);
+
+  /* Font Variables */
+  --font-inter-tight: "Inter Tight", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
+/* Dark Mode - Atmospheric with depth */
+.dark {
+  /* Dark metallic background with gradients */
+  --background: oklch(0.15 0.01 240); /* #1A1B26 - Near black with hint of blue */
+  --foreground: oklch(0.95 0 0); /* #F0F0F0 - Off white */
+
+  /* Glass surfaces with teal reflection */
+  --card: oklch(0.2 0.015 200 / 0.6); /* #2A2D3A - Dark gray with teal hint, semi-transparent */
+  --card-foreground: oklch(0.95 0 0);
+
+  --popover: oklch(0.2 0.015 200 / 0.8);
+  --popover-foreground: oklch(0.95 0 0);
+
+  /* Soft teal/aqua accent */
+  --primary: oklch(0.7 0.1 190); /* #5DD9C1 - Soft aqua, elegant glow */
+  --primary-foreground: oklch(0.15 0.01 240);
+
+  --secondary: oklch(0.25 0.01 220 / 0.5); /* #35374A - Mid-gray with transparency */
+  --secondary-foreground: oklch(0.95 0 0);
+
+  --muted: oklch(0.22 0.01 220 / 0.4);
+  --muted-foreground: oklch(0.7 0 0); /* #B3B3B3 - Light gray */
+
+  --accent: oklch(0.25 0.015 200 / 0.5);
+  --accent-foreground: oklch(0.95 0 0);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.3 0.02 200 / 0.3); /* Subtle borders with teal hint */
+  --input: oklch(0.22 0.015 200 / 0.6);
+  --ring: oklch(0.7 0.1 190 / 0.5); /* Soft aqua glow */
+
+  /* Sidebar - charcoal black instead of dark gray with teal */
+  --sidebar: oklch(0.16 0 0); /* #1F1F1F - Charcoal black, solid */
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.7 0.1 190);
+  --sidebar-primary-foreground: oklch(0.15 0.01 240);
+  --sidebar-accent: oklch(0.2 0 0 / 0.5); /* Slightly lighter charcoal for hover */
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0 0 / 0.3); /* Subtle border on charcoal */
+  --sidebar-ring: oklch(0.7 0.1 190 / 0.5);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter-tight);
+  --font-mono: var(--font-geist-mono);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Glassmorphism utilities for frosted glass effect */
+  .glass-surface {
+    @apply backdrop-blur-xl bg-card/60 border border-border/50;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-sidebar {
+    @apply backdrop-blur-2xl bg-sidebar border-r border-sidebar-border;
+    box-shadow: 4px 0 24px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .glass-input {
+    @apply backdrop-blur-lg bg-input/80 border border-border/40;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Soft shadows for depth without hard edges */
+  .soft-shadow {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08), 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .soft-shadow-lg {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12), 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Smooth transitions for air-like movement */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .smooth-transition-fast {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Gentle glow for accents (not neon, balanced) */
+  .gentle-glow {
+    box-shadow: 0 0 20px 0 rgba(93, 217, 193, 0.15);
+  }
+
+  .gentle-glow-hover:hover {
+    box-shadow: 0 0 24px 0 rgba(93, 217, 193, 0.25);
+  }
+}
